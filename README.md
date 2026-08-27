@@ -85,11 +85,35 @@ from company records.
 | `real-estate.html` | Portfolio counts, unit sizes, terms |
 | `real-estate.html` | Tenant and owner service commitments (these are promises — check them) |
 | `about.html` | Founding year and story, headcount, governance claims |
-| All pages | Photography slots (hatched panels) — drop real images in |
+| `construction.html`, `about.html` | The six photographs — see **Photography** below |
 
 The governance and insurance statements on `about.html`, and the response-time
 commitments on `real-estate.html` and `contact.html`, are the ones to check
 first — they read as commitments to a customer.
+
+## Photography
+
+The six images in `assets/photos/` were generated with Artlist AI (Seedream 5.0)
+to the brand kit's photography direction: bright, high-key midday light, aqua
+dominant, candid and unposed, with room for type.
+
+| File | Used on |
+| --- | --- |
+| `site-structure.jpg` | construction.html |
+| `interior-handover.jpg` | construction.html |
+| `aerial-hulhumale.jpg` | construction.html |
+| `people-at-work.jpg` | about.html |
+| `warehouse.jpg` | about.html |
+| `aerial-lagoon.jpg` | about.html |
+
+**These are illustrative, not documentary.** They are not photographs of Kavo
+projects, Kavo staff or the Kavo warehouse. Captions were written to describe
+the scene rather than claim it, but if you would rather not run AI imagery on a
+corporate site, swap in real project photography — the markup takes any
+16:9 image at the same paths.
+
+All six are 1400px wide, JPEG q80, progressive, and lazy-loaded. Keep
+replacements at a similar size; the whole set is under 1 MB.
 
 ## The enquiry form
 

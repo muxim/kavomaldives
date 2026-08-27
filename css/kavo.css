@@ -556,7 +556,7 @@ a:hover { color: var(--abyss); }
   color: var(--abyss);
 }
 
-/* Photography slots — brand kit reserves these for real photography */
+/* Photography */
 .photoslot {
   border-radius: var(--r);
   overflow: hidden;
@@ -564,7 +564,14 @@ a:hover { color: var(--abyss); }
   box-shadow: var(--shadow);
 }
 .photoslot__img {
-  height: 200px;
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: linear-gradient(160deg, #EEF6F6, #E4EFEF);
+}
+/* An empty slot, until real photography replaces it */
+.photoslot__img--empty {
   background: repeating-linear-gradient(45deg, #E4EFEF 0 10px, #F4FAFA 10px 20px);
   display: flex;
   align-items: center;
