@@ -111,7 +111,7 @@
         lines.push((label ? label.textContent.trim() : el.name) + ': ' + (data.get(el.name) || '—'));
       });
 
-      var subject = 'Enquiry from kavo.mv — ' + (data.get('company') || data.get('name') || 'website');
+      var subject = 'Enquiry from kavomaldives.com — ' + (data.get('company') || data.get('name') || 'website');
       var href = 'mailto:' + form.getAttribute('data-mailto') +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(lines.join('\n'));
@@ -121,7 +121,7 @@
       var status = form.querySelector('[data-form-status]');
       if (status) {
         status.textContent = 'Your email app should now be open with this enquiry ready to send. ' +
-          'If nothing opened, write to info@kavo.mv directly.';
+          'If nothing opened, write to info@kavomaldives.com directly.';
       }
     });
   }

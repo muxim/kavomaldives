@@ -21,7 +21,7 @@ just HTML, one stylesheet and one script.
 
 The repo carries a `.cpanel.yml`, so cPanel's **Git Version Control** can deploy
 it. First open `.cpanel.yml` and check `DEPLOYPATH` matches the document root of
-the domain — `$HOME/public_html` for a primary domain, `$HOME/kavo.mv` for an
+the domain — `$HOME/public_html` for a primary domain, `$HOME/kavomaldives.com` for an
 addon domain (cPanel > Domains lists the real path).
 
 ### Option A — pull from GitHub (simplest)
@@ -147,8 +147,8 @@ at the same time.
 
 | Where | What to replace |
 | --- | --- |
-| All pages, footer | `info@kavo.mv` — still the brand kit's placeholder address |
 | `contact.html` | Office street address; opening hours |
+| — | Contact details are real: `info@kavomaldives.com`, `+960 913 5788` |
 | `index.html` | The three figures: 2026 registered, 15+ years, 3 businesses |
 | `import-export.html` | Source markets and transit times — currently the lanes your people know, not contracted routes |
 | `real-estate.html` | Tenant and owner service commitments (these are promises — check you can hold them) |
@@ -189,7 +189,7 @@ replacements at a similar size; the whole set is under 1 MB.
 ## The enquiry form
 
 `contact.html` has no backend. On submit it composes a `mailto:` to
-`info@kavo.mv` with the fields filled in, and says so on the page, so nothing is
+`info@kavomaldives.com` with the fields filled in, and says so on the page, so nothing is
 silently dropped. To take submissions server-side, replace the `data-mailto`
 handler in `js/kavo.js` with a POST to your endpoint.
 

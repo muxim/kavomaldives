@@ -2,7 +2,7 @@
 #
 # Set DEPLOYPATH below to the document root of the domain this site serves:
 #   Primary domain ...  $HOME/public_html
-#   Addon domain .....  $HOME/kavo.mv            (see cPanel > Domains)
+#   Addon domain .....  $HOME/kavomaldives.com            (see cPanel > Domains)
 #   Subdomain ........  $HOME/public_html/sub
 #
 # README.md, .claude/ and the repository itself are deliberately not copied.
