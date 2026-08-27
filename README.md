@@ -76,7 +76,7 @@ from company records.
 
 | Where | What to replace |
 | --- | --- |
-| All pages, footer | `info@kavo.mv`, `+960 000 0000` — from the brand kit's own placeholders |
+| All pages, footer | `info@kavo.mv` — still the brand kit's placeholder address |
 | `contact.html` | Office street address, warehouse address, opening hours |
 | `index.html` | The four figures: 2009, 140, 6, 24 |
 | `index.html` | "Recent work" table — five rows |
