@@ -135,25 +135,31 @@ intends it.
 
 ## Content that still needs your input
 
-Everything below is a **placeholder written to be replaced**. None of it is drawn
-from company records.
+Kavo was registered in Male' in August 2026 and has no completed projects. The
+site is written to say so plainly rather than imply a history it does not have,
+so there is no project list, no client logos and no portfolio anywhere on it.
+
+**Every claim on the site is about what Kavo will do, not what it has done.**
+Three pages say this outright — the "We are new. The people are not." section on
+the home page, "No portfolio yet" on Construction, and "What we have, and what we
+do not" on About. If you later ask for a portfolio section, those need revisiting
+at the same time.
 
 | Where | What to replace |
 | --- | --- |
 | All pages, footer | `info@kavo.mv` — still the brand kit's placeholder address |
-| `contact.html` | Office street address, warehouse address, opening hours |
-| `index.html` | The four figures: 2009, 140, 6, 24 |
-| `index.html` | "Recent work" table — five rows |
-| `import-export.html` | Product lines, source markets and transit times |
-| `construction.html` | Project table — eight rows |
-| `real-estate.html` | Portfolio counts, unit sizes, terms |
-| `real-estate.html` | Tenant and owner service commitments (these are promises — check them) |
-| `about.html` | Founding year and story, headcount, governance claims |
+| `contact.html` | Office street address; opening hours |
+| `index.html` | The three figures: 2026 registered, 15+ years, 3 businesses |
+| `import-export.html` | Source markets and transit times — currently the lanes your people know, not contracted routes |
+| `real-estate.html` | Tenant and owner service commitments (these are promises — check you can hold them) |
+| `about.html` | The founding account, and the governance statements |
 | `construction.html`, `about.html` | The six photographs — see **Photography** below |
 
-The governance and insurance statements on `about.html`, and the response-time
-commitments on `real-estate.html` and `contact.html`, are the ones to check
-first — they read as commitments to a customer.
+The commitments are the ones to read first, because a new company is judged on
+whether it keeps the first promise it makes: "we reply within one working day"
+(Contact), "routine repairs completed within 5 days" and "monthly statement"
+(Real estate), "a principal on site every week" (Construction), and the
+insurance-before-work-starts line on About.
 
 ## Photography
 
@@ -171,10 +177,11 @@ dominant, candid and unposed, with room for type.
 | `aerial-lagoon.jpg` | about.html |
 
 **These are illustrative, not documentary.** They are not photographs of Kavo
-projects, Kavo staff or the Kavo warehouse. Captions were written to describe
-the scene rather than claim it, but if you would rather not run AI imagery on a
-corporate site, swap in real project photography — the markup takes any
-16:9 image at the same paths.
+projects, Kavo staff or a Kavo warehouse — the company has none yet. Both pages
+carry a visible line under the images saying exactly that, and the captions
+describe the kind of work rather than claim it. Replace them with your own
+photography as jobs complete; the markup takes any 16:9 image at the same paths.
+If you would rather not run AI imagery at all, delete the two image sections.
 
 All six are 1400px wide, JPEG q80, progressive, and lazy-loaded. Keep
 replacements at a similar size; the whole set is under 1 MB.
