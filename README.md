@@ -17,6 +17,70 @@ python3 -m http.server 4173
 Then open <http://localhost:4173>. There is no build step and no dependencies —
 just HTML, one stylesheet and one script.
 
+## Deploying to cPanel
+
+The repo carries a `.cpanel.yml`, so cPanel's **Git Version Control** can deploy
+it. First open `.cpanel.yml` and check `DEPLOYPATH` matches the document root of
+the domain — `$HOME/public_html` for a primary domain, `$HOME/kavo.mv` for an
+addon domain (cPanel > Domains lists the real path).
+
+### Option A — pull from GitHub (simplest)
+
+1. cPanel > Files > **Git™ Version Control** > **Create**.
+2. Turn on **Clone a Repository**.
+   - Clone URL: `https://github.com/muxim/kavomaldives.git`
+   - Repository Path: `/home/USERNAME/repositories/kavomaldives`
+   - Repository Name: `kavomaldives`
+3. **Create**. cPanel clones and checks out `main`.
+4. To publish: **Manage** > **Pull or Deploy** > **Update from Remote**, then
+   **Deploy HEAD Commit**.
+
+Repeat step 4 after every push. If the repo is private, add an SSH key
+(cPanel > SSH Access) to GitHub as a deploy key and clone
+`git@github.com:muxim/kavomaldives.git` instead.
+
+### Option B — push straight to cPanel (deploys on push)
+
+Needs SSH access enabled on the account.
+
+1. cPanel > **Git™ Version Control** > **Create**, leaving *Clone a Repository*
+   **off**. Path `/home/USERNAME/repositories/kavomaldives`.
+2. Add it as a second remote locally and push:
+
+```bash
+git remote add cpanel ssh://USERNAME@YOUR-SERVER:22/home/USERNAME/repositories/kavomaldives
+```
+
+```bash
+git push cpanel main
+```
+
+cPanel queues a deployment on receipt. If it does not fire, click **Deploy HEAD
+Commit** once — after that pushes deploy on their own. You can keep pushing to
+GitHub as well: `git push origin main`.
+
+### Things that trip this up
+
+- **The repository must live outside `public_html`.** cPanel refuses to deploy a
+  repo that sits in the document root. `~/repositories/` is the convention.
+- **Deployment only runs from the checked-out branch**, and only if
+  `.cpanel.yml` is present on it.
+- **The working tree on the server must be clean.** Never edit files inside the
+  repo directory over FTP or File Manager — edit locally, commit, push.
+- **Deleted files are not removed from the server.** The tasks copy, they do not
+  sync. If you delete a page, remove it from `public_html` by hand.
+- Deployment output is in `~/.cpanel/logs/` if something fails silently.
+
+### What gets deployed
+
+The six HTML pages, `assets/`, `css/kavo.css`, `js/kavo.js`, and
+`deploy/.htaccess` (which lands as `.htaccess` in the document root).
+`README.md`, `.claude/` and the git history are not copied.
+
+`deploy/.htaccess` turns on compression, sets modest cache headers, and lets
+`/about` serve `about.html` while existing `.html` links keep working. Delete
+the last task in `.cpanel.yml` if your host manages Apache config itself.
+
 ## Structure
 
 ```

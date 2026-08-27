@@ -1,0 +1,46 @@
+# Kavo Private Limited — static site on Apache/cPanel.
+# Deployed to the document root by .cpanel.yml. Safe to delete if your host
+# manages these settings itself.
+
+DirectoryIndex index.html
+Options -Indexes
+
+# ---------------------------------------------------------------- clean URLs
+# /about also serves about.html. Existing .html links keep working.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# ---------------------------------------------------------------- compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------- caching
+# Filenames are not fingerprinted, so CSS and JS are held for a day only —
+# long enough to help repeat visits, short enough that a deploy shows up.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                          "access plus 1 day"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 day"
+  ExpiresByType application/javascript    "access plus 1 day"
+  ExpiresByType image/jpeg                "access plus 1 month"
+  ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
